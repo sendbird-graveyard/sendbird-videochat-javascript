@@ -1,0 +1,24 @@
+{
+  "name": "sendbird-videochat",
+  "version": "0.9.0",
+  "description": "SendBird VideoChat for JavaScript",
+  "main": "SendBirdVideoChat.min.js",
+  "typings": "SendBirdVideoChat.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smilefam/sendbird-videochat-javascript.git"
+  },
+  "keywords": ["sendbird", "video", "video chat", "video call", "audio", "audio chat", "audio call", "sendbird-videochat"],
+  "author": "SendBird <support@sendbird.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/smilefam/sendbird-videochat-javascript/issues"
+  },
+  "homepage": "https://sendbird.com",
+  "dependencies": {
+    "sendbird": "^3.0.97"
+  }
+}
