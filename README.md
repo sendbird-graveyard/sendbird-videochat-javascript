@@ -403,6 +403,3 @@ console.log(SendBirdVideoChat.VideoChatType.Role);
 ## [Change Log](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/CHANGELOG.md)    
 
 ## [License](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)  
-
-
-## [License](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)  
