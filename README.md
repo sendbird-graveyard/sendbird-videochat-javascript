@@ -1,6 +1,6 @@
 
 
-[![npm](https://img.shields.io/npm/v/sendbird.svg?style=popout&colorB=red)](https://www.npmjs.com/package/sendbird-videochat)
+[![npm](https://img.shields.io/npm/v/sendbird-videochat.svg?style=popout&colorB=red)](https://www.npmjs.com/package/sendbird-videochat)
 [![Platform](https://img.shields.io/badge/language-JavaScript-yellow.svg)](https://github.com/smilefam/sendbird-videochat-javascript)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)
 
