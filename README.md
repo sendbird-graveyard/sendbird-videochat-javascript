@@ -4,12 +4,12 @@
 [![Platform](https://img.shields.io/badge/language-JavaScript-yellow.svg)](https://github.com/smilefam/sendbird-videochat-javascript)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)
 
+# SendBird VideoChat for JavaScript
 
-# SendBird VideoChat
+SendBird `VideoChat` is an add-on to your application that enables users to make video and audio calls. SendBird `VideoChat` is available through [WebRTC](https://webrtc.org/).   
 
-SendBird `VideoChat` is an add-on to your application that enables users to make video and audio chats. SendBird `VideoChat` is available through [WebRTC](https://webrtc.org/). 
+Note: This is a beta version and is not yet open to all users. If you would like to try SendBird `VideoChat`, contact our [sales support](https://help.sendbird.com/hc/en-us/requests/new) for more information.    
 
-Note: This is a beta version and is not yet open to all users. If you would like to try SendBird `VideoChat`, contact our sales support for more information. 
 
 ## Contents
 
@@ -108,8 +108,8 @@ import SendBirdVideoChat from 'sendbird-videochat';
 const isAudioCall = false;
 const callOptions = new SendBirdVideoChat.CallOptions({ channelUrl: 'TARGET_CHANNEL_URL' });
 SendBirdVideoChat.startCall(isAudioCall, callOptions)
-.then(call => { /* do something... */ })
-.catch(e => { /* do something... */ });
+  .then(call => { /* do something... */ })
+  .catch(e => { /* do something... */ });
 
 //// If you want to implement with a callback
 //SendBirdVideoChat.startCall(isAudioCall, callOptions, (err, call) => {
@@ -128,7 +128,7 @@ import SendBirdVideoChat from 'sendbird-videochat';
 
 const videoChatHandler = new SendBirdVideoChat.VideoChatHandler();
 videoChatHandler.onStartReceived = (call) => {
-/* do something... */
+  /* do something... */
 };
 SendBirdVideoChat.addVideoChatHandler('IDENTIFIER', videoChatHandler);
 
@@ -165,7 +165,7 @@ const call = SendBirdVideoChat.getCall('CALL_ID');
 const buildCall = SendBirdVideoChat.buildCall(userMessage); 
 ```
 
-#### Identifying the type of a message
+### Identifying the type of a message
 
 Using the `getRenderingMessageType()`, you can identify the type of a passed message and determine how to render your chat view based on the message. The method returns one of the following four values:  
 
@@ -222,31 +222,31 @@ import SendBirdVideoChat from 'sendbird-videochat';
 
 const videoChatHandler = new SendBirdVideoChat.VideoChatHandler();
 videoChatHandler.onStartSent = (call, userMessage) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onStartReceived = (call) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onAcceptSent = (call) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onAcceptReceived = (call) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onEndSent = (call, userMessage) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onEndReceived = (call) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onConnected = (call) => {
-/* do something... */
+  /* do something... */
 };
 videoChatHandler.onOpponentAudioStateChanged = (call) => {
-/* do something... */
+   /* do something... */
 };
 videoChatHandler.onOpponentVideoStateChanged = (call) => {
-/* do something... */
+  /* do something... */
 };
 SendBirdVideoChat.addVideoChatHandler('IDENTIFIER', videoChatHandler);
 ```
@@ -267,14 +267,14 @@ The `CallOptions` is a class that users use to request calls with the `startCall
 import SendBirdVideoChat from 'sendbird-videochat';
 
 const callOptions = new SendBirdVideoChat.CallOptions({
-channelUrl: 'TARGET_CHANNEL_URL',
-localVideoElement: document.getElementById('YOUR_LOCAL_VIDEO_ELEMENT'),
-remoteVideoElement: document.getElementById('YOUR_REMOTE_VIDEO_ELEMENT'),
-isAudioEnabled: true,
-isVideoEnabled: true,
-videoWidth: 1024,
-videoHeight: 720,
-videoFPS: 30,
+  channelUrl: 'TARGET_CHANNEL_URL',
+  localVideoElement: document.getElementById('YOUR_LOCAL_VIDEO_ELEMENT'),
+  remoteVideoElement: document.getElementById('YOUR_REMOTE_VIDEO_ELEMENT'),
+  isAudioEnabled: true,
+  isVideoEnabled: true,
+  videoWidth: 1024,
+  videoHeight: 720,
+  videoFPS: 30,
 })
 ```
 
@@ -321,22 +321,22 @@ import SendBirdVideoChat from 'sendbird-videochat';
 
 const videoChatHandler = new SendBirdVideoChat.VideoChatHandler();
 videoChatHandler.onStartSent = (call, message) => {
-// Cancel
-call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
+  // Cancel
+  call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
 };
 videoChatHandler.onStartReceived = (call) => {
-// Decline
-call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
+  // Decline
+  call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
 };
 videoChatHandler.onConnected = (call) => {
-// End
-call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
+  // End
+  call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
 };
 videoChatHandler.onOpponentVideoStateChanged = (call) => {
-/* do something */
+  /* do something */
 };
 videoChatHandler.onOpponentAudioStateChanged = (call) => {
-/* do something */
+  /* do something */
 };
 SendBirdVideoChat.addVideoChatHandler('IDENTIFIER', videoChatHandler);
 
@@ -367,6 +367,7 @@ The `VideoChatException` is returned in the event of an error in `SendBirdVideoC
 | UNSUITABLE_CHANNEL           | 820401 |
 | CALL_ON_GOING                | 900600 |
 
+
 ```javascript
 import SendBirdVideoChat from 'sendbird-videochat';
 
@@ -391,6 +392,7 @@ The `VideoChatType` is determined by three different types of `SendBirdVideoChat
 | Role                 | NONE       | none       |
 |                      | CALLER     | caller     |
 |                      | CALLEE     | callee     |
+
 
 ```javascript
 import SendBirdVideoChat from 'sendbird-videochat';
