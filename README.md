@@ -188,34 +188,40 @@ The `VideoChatHandler` supports various methods which receive events callbacks f
 The following are provided with the `VideoChatHandler`:
 
 1. **onStartSent(call, message)**
-- Called when a caller's video or audio call request is successfully accepted by SendBird server from the `startCall()`. (At the caller's application) 
-- **call**: a `Call` instance which contains the current call status.  
-- **message**: a `UserMessage` instance which contains the text sent with the call request.  
+    - Called when a caller's video or audio call request is successfully accepted by SendBird server from the `startCall()`. (At the caller's application) 
+    - **call**: a `Call` instance which contains the current call status.  
+    - **message**: a `UserMessage` instance which contains the text sent with the call request.  
 2. **onStartReceived(call)**
-- Called when a callee receives a video or audio call request. (At the callee's application)  
-- **call**: a `Call` instance which contains the current call status.  
+    - Called when a callee receives a video or audio call request. (At the callee's application)  
+    - **call**: a `Call` instance which contains the current call status.  
 3. **onAcceptSent(call)**
-- Called when a callee has accepted a video or audio call request using the `accept()` and SendBird server confirms the acceptance. (At the callee's application)      
-- **call**: a `Call` instance which contains the current call status.  
+    - Called when a callee has accepted a video or audio call request using the `accept()` and SendBird server confirms the acceptance. (At the callee's application)      
+    - **call**: a `Call` instance which contains the current call status.  
 4. **onAcceptReceived(call)**
-- Called when TURN server starts a video or audio call delivery between a caller and callee. (At the caller's application)    
-- **call**: a `Call` instance which contains the current call status.  
+    - Called when TURN server starts a video or audio call delivery between a caller and callee. (At the caller's application)    
+    - **call**: a `Call` instance which contains the current call status.  
 5. **onEndSent(call, message)**
-- Called when a call close request has been sent to SendBird server using the `end()` and the server successfully accepts the request. (At the application which sent the close request)  
-- **call**: a `Call` instance which contains the current call status.  
-- **message**: a `UserMessage` instance which contains the text sent with the call close request.  
+    - Called when a call close request has been sent to SendBird server using the `end()` and the server successfully accepts the request. (At the application which sent the close request)  
+    - **call**: a `Call` instance which contains the current call status.  
+    - **message**: a `UserMessage` instance which contains the text sent with the call close request.  
 6. **onEndReceived(call)**
-- Called when a call has been closed from the opponent's request. (At the application which receives the close request)    
-- **call**: a `Call` instance which contains the current call status.  
-7. **onConnected(call)**
-- Called when caller and callee are connected via SendBird server and can communicate with each other. (at both applications)   
-- **call**: a `Call` instance which contains the current call status.  
-8. **onOpponentAudioStateChanged(call)**
-- Called when the audio state of either a caller or callee has been changed. (Notifies the opposite application)    
-- **call**: a `Call` instance which contains the current call status.  
-9. **onOpponentVideoStateChanged(call)**
-- Called when the video state of either a caller or callee has been changed. (Notifies the opposite application) 
-- **call**: a `Call` instance which contains the current call status.  
+    - Called when a call has been closed from the opponent's request. (At the application which receives the close request)    
+    - **call**: a `Call` instance which contains the current call status.  
+7. **onOpened(call)**
+    - Called when caller and callee are connected via SendBird server and can communicate with each other. (at both applications)   
+    - **call**: a `Call` instance which contains the current call status.  
+8. **onDropped(call)**
+    - Called if caller or callee is disconnected via SendBird server and can't communicate with each other. (at both applications)      
+    - **call**: a `Call` instance which contains the current call status.  
+9. **onReopened(call)**
+    - Called when caller and callee are reconnected via SendBird server and can communicate with each other. (at both applications)   
+    - **call**: a `Call` instance which contains the current call status.  
+10. **onOpponentAudioStateChanged(call)**
+    - Called when the audio state of either a caller or callee has been changed. (Notifies the opposite application)    
+    - **call**: a `Call` instance which contains the current call status.  
+11. **onOpponentVideoStateChanged(call)**
+    - Called when the video state of either a caller or callee has been changed. (Notifies the opposite application) 
+    - **call**: a `Call` instance which contains the current call status.  
 
 ```javascript
 import SendBirdVideoChat from 'sendbird-videochat';
@@ -239,7 +245,13 @@ videoChatHandler.onEndSent = (call, userMessage) => {
 videoChatHandler.onEndReceived = (call) => {
   /* do something... */
 };
-videoChatHandler.onConnected = (call) => {
+videoChatHandler.onOpened = (call) => {
+  /* do something... */
+};
+videoChatHandler.onDropped = (call) => {
+  /* do something... */
+};
+videoChatHandler.onReopened = (call) => {
   /* do something... */
 };
 videoChatHandler.onOpponentAudioStateChanged = (call) => {
@@ -298,15 +310,14 @@ Through a `Call` instance, you can make actions of a video or audio call. It als
 - **isAudioCall**: determines whether the `Call` is an audio call.  
 - **caller**: information of the `Caller`, the one who makes the call.  
 - **callee**: information of the `Callee`, the one who receives the call.  
-- **state**: specifies the status of the `Call` which are identified as `none`, `connecting`, `connected`, and `disconnected`.    
 - **ender**: information of the `Caller` or `Callee`, the one who ends the call.   
 - **endType**: specifies that the `Call` has ended. This has one of the following values.   
-- **none**: it's not ended yet.  
-- **cancel**: the `end()`called by the `Caller` before `Callee` accepts the `Call`.   
-- **decline**: the `end()` called by the `Callee` without accepting the `Call`.  
-- **end**: a `Caller` or `Callee` ended the video or audio call after the connection.   
-- **timeout**: the `Call` was closed when a `Callee` didn't respond to a call request. 
-- **unknown**: the `Call` was closed for unknown reasons.   
+  - **none**: it's not ended yet.  
+  - **cancel**: the `end()`called by the `Caller` before `Callee` accepts the `Call`.   
+  - **decline**: the `end()` called by the `Callee` without accepting the `Call`.  
+  - **end**: a `Caller` or `Callee` ended the video or audio call after the connection.   
+  - **timeout**: the `Call` was closed when a `Callee` didn't respond to a call request. 
+  - **unknown**: the `Call` was closed for unknown reasons.   
 - **period**: specifies the length of time in unix timestamp for `Call`.    
 - **myRole**: specifies the role on the `Call` as a `Caller` or `Callee`.
 - **accept()**: the `Callee` accepts the `Call`.    
@@ -315,6 +326,7 @@ Through a `Call` instance, you can make actions of a video or audio call. It als
 - **stopVideo()**: calls the `onOpponentVideoStateChanged()` handler that you registered to stop video streaming on the `Call`.     
 - **muteMicrophone()**: calls the `onOpponentAudioStateChanged()` handler that you registered to start audio streaming on the `Call`.      
 - **unmuteMicrophone()**: calls the `onOpponentAudioStateChanged()` handler that you registered to stop audio streaming on the `Call`.      
+- **setMediaDevice()**: Change to the passed media device.      
 
 ```javascript
 import SendBirdVideoChat from 'sendbird-videochat';
@@ -328,7 +340,7 @@ videoChatHandler.onStartReceived = (call) => {
   // Decline
   call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
 };
-videoChatHandler.onConnected = (call) => {
+videoChatHandler.onOpened = (call) => {
   // End
   call.end().then(call => { /* do something */ }).catch(e => { /* do something */ });
 };

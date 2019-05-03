@@ -52,7 +52,6 @@ interface Call {
   ender: CallUser;
   endType: EndType;
   period: number;
-  state: CallStateType;
   readonly myRole: RoleType;
 
   accept(callOptions: CallOptions, callbackFn: responseCallback): void;
@@ -64,6 +63,8 @@ interface Call {
   stopVideo(): void;
   muteMicrophone(): void;
   unmuteMicrophone(): void;
+  setMediaDevice(deviceId: string, callbackFn: errorResponseCallback): void;
+  setMediaDevice(deviceId: string): Promise<void>;
 }
 
 interface CallOptions {
@@ -97,9 +98,11 @@ interface VideoChatHandler {
   onStartReceived: (call: Call) => any | null;
   onAcceptSent: (call: Call) => any | null;
   onAcceptReceived: (call: Call) => any | null;
-  onEndSent: (call: Call, message: UserMessage) => any | null;
+  onEndSent: (call: Call, message: UserMessage | null) => any | null;
   onEndReceived: (call: Call) => any | null;
-  onConnected: (call: Call) => any | null;
+  onOpened: (call: Call) => any | null;
+  onDropped: (call: Call) => any | null;
+  onReopened: (call: Call) => any | null;
   onOpponentAudioStateChanged: (call: Call) => any | null;
   onOpponentVideoStateChanged: (call: Call) => any | null;
 }
@@ -128,6 +131,7 @@ interface VideoChatType {
     DECLINE: 'decline';
     CANCEL: 'cancel';
     TIMEOUT: 'timeout';
+    RECONNECT_TIMEOUT: 'reconnect_timeout';
     UNKNOWN: 'unknown';
   };
   Role: {
@@ -139,6 +143,7 @@ interface VideoChatType {
 
 type SendBirdVideoChatInitOptions = { sendBird: SendBird.SendBirdInstance };
 type responseCallback = (error: VideoChatException, call: Call | null) => void;
+type errorResponseCallback = (error: VideoChatException) => void;
 type ConstraintsType = { audio: boolean; video: boolean | ConstraintsVideoType };
 type ConstraintsVideoType =
   | { width: number }
@@ -148,8 +153,7 @@ type ConstraintsVideoType =
   | { width: number; frameRate: { ideal: number } }
   | { height: number; frameRate: { ideal: number } }
   | { width: number; height: number; frameRate: { ideal: number } };
-type EndType = 'none' | 'end' | 'decline' | 'cancel' | 'timeout' | 'unknown';
-type CallStateType = 'none' | 'connecting' | 'connected' | 'disconnected';
+type EndType = 'none' | 'end' | 'decline' | 'cancel' | 'timeout' | 'reconnect_timeout' | 'unknown';
 type RoleType = 'none' | 'caller' | 'callee';
 type RenderingMessageType = 'chat' | 'start' | 'end' | 'not_render';
 type ErrorCodeType = {
