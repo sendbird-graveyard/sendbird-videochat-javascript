@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.9.3(JUN 3, 2019)
+ * Improved stability.   
+ 
 ## v0.9.2(MAY 3, 2019)
  * Improved stability.   
  * Added `setMediaDevice()` to change device such as microphone, speaker, or camera.  
