@@ -1,6 +1,6 @@
 {
   "name": "sendbird-videochat",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "SendBird VideoChat for JavaScript",
   "main": "SendBirdVideoChat.min.js",
   "typings": "SendBirdVideoChat.d.ts",
