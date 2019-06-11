@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smilefam/sendbird-videochat-javascript.git"
+    "url": "git+https://github.com/sendbird/sendbird-videochat-javascript.git"
   },
   "keywords": ["sendbird", "video", "video chat", "video call", "audio", "audio chat", "audio call", "sendbird-videochat"],
   "author": "SendBird <support@sendbird.com>",
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com/smilefam/sendbird-videochat-javascript/issues"
+    "url": "https://github.com/sendbird/sendbird-videochat-javascript/issues"
   },
   "homepage": "https://sendbird.com",
   "dependencies": {

@@ -1,8 +1,8 @@
 
 
 [![npm](https://img.shields.io/npm/v/sendbird-videochat.svg?style=popout&colorB=red)](https://www.npmjs.com/package/sendbird-videochat)
-[![Platform](https://img.shields.io/badge/language-JavaScript-yellow.svg)](https://github.com/smilefam/sendbird-videochat-javascript)
-[![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)
+[![Platform](https://img.shields.io/badge/language-JavaScript-yellow.svg)](https://github.com/sendbird/sendbird-videochat-javascript)
+[![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-videochat-javascript/blob/master/LICENSE.md)
 
 # SendBird VideoChat for JavaScript
 
@@ -29,8 +29,8 @@ Note: This is a beta version and is not yet open to all users. If you would like
   - [`Call`](#call)
   - [`VideoChatException`](#videochatexception)
   - [`VideoChatType`](#videochattype)
-- [Change Log](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/CHANGELOG.md)
-- [License](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)
+- [Change Log](https://github.com/sendbird/sendbird-videochat-javascript/blob/master/CHANGELOG.md)
+- [License](https://github.com/sendbird/sendbird-videochat-javascript/blob/master/LICENSE.md)
 
 
 ## Supported browsers
@@ -414,6 +414,6 @@ console.log(SendBirdVideoChat.VideoChatType.EndType);
 console.log(SendBirdVideoChat.VideoChatType.Role);
 ```
 
-## [Change Log](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/CHANGELOG.md)    
+## [Change Log](https://github.com/sendbird/sendbird-videochat-javascript/blob/master/CHANGELOG.md)    
 
-## [License](https://github.com/smilefam/sendbird-videochat-javascript/blob/master/LICENSE.md)  
+## [License](https://github.com/sendbird/sendbird-videochat-javascript/blob/master/LICENSE.md)  
