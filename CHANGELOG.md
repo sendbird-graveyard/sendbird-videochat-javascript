@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## v0.9.4(AUG 1, 2019)
+ * Changed timeout time to handle the bad network.     
+ 
 ## v0.9.3(JUN 3, 2019)
  * Improved stability.   
  
