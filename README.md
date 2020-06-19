@@ -1,5 +1,5 @@
-**We officially have lauched Sendbird Calls! Please visit the [new SDK](https://github.com/sendbird/sendbird-calls-javascript).**  
-
+**We officially have lauched Sendbird Calls! Please visit the [new SDK](https://github.com/sendbird/sendbird-calls-javascript).**  </br></br>
+  
 [![npm](https://img.shields.io/npm/v/sendbird-videochat.svg?style=popout&colorB=red)](https://www.npmjs.com/package/sendbird-videochat)
 [![Platform](https://img.shields.io/badge/language-JavaScript-yellow.svg)](https://github.com/sendbird/sendbird-videochat-javascript)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-videochat-javascript/blob/master/LICENSE.md)
